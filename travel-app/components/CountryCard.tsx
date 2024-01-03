@@ -1,5 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Image, Text } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  Pressable,
+} from 'react-native'
+import { useRouter } from 'expo-router'
 
 interface CountryCardProps {
   countryName: string
@@ -10,18 +17,24 @@ const CountryCard: React.FC<CountryCardProps> = ({
   countryName,
   imageUrl,
 }) => {
+  const router = useRouter()
+
   return (
-    <View style={styles.container}>
-      <Image
-        source={{ uri: imageUrl }}
-        style={styles.image}
-      />
-      <View style={styles.overlay}>
-        <Text style={styles.countryName}>
-          {countryName}
-        </Text>
+    <Pressable
+      onPress={() => router.push(`/country/${countryName}`)}
+    >
+      <View style={styles.container}>
+        <Image
+          source={{ uri: imageUrl }}
+          style={styles.image}
+        />
+        <View style={styles.overlay}>
+          <Text style={styles.countryName}>
+            {countryName}
+          </Text>
+        </View>
       </View>
-    </View>
+    </Pressable>
   )
 }
 
