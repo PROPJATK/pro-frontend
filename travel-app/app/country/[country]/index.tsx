@@ -6,8 +6,12 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { Image } from 'react-native'
-import { useNavigation, usePathname } from 'expo-router'
-import CountryInfo from '../../components/CountryInfo'
+import {
+  router,
+  useNavigation,
+  usePathname,
+} from 'expo-router'
+import CountryInfo from '../../../components/CountryInfo'
 
 type CountryData = {
   name: string
@@ -66,6 +70,11 @@ const CountryPage = () => {
           <TouchableOpacity
             key={index}
             style={styles.button}
+            onPress={() =>
+              router.push(
+                `/country/${countryName}/city/${city.name}`
+              )
+            }
           >
             <Text style={styles.title}>{city.name}</Text>
           </TouchableOpacity>

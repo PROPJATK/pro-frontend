@@ -49,7 +49,7 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const colorScheme = useColorScheme()
 
- return (
+  return (
     <ThemeProvider
       value={
         colorScheme === 'dark' ? DarkTheme : DefaultTheme
@@ -68,9 +68,37 @@ function RootLayoutNav() {
           }}
         />
         <Stack.Screen
-          name="country/[country]"
+          name="country/[country]/index"
           options={{
             title: '[country]',
+            headerShadowVisible: true,
+          }}
+        />
+        <Stack.Screen
+          name="country/[country]/city/[city]/index"
+          options={{
+            title: '[city]',
+            headerShadowVisible: true,
+          }}
+        />
+        <Stack.Screen
+          name="country/[country]/city/[city]/attractions/index"
+          options={{
+            title: 'Attractions',
+            headerShadowVisible: true,
+          }}
+        />
+        <Stack.Screen
+          name="country/[country]/city/[city]/restaurants/index"
+          options={{
+            title: 'Restaurants',
+            headerShadowVisible: true,
+          }}
+        />
+        <Stack.Screen
+          name="country/[country]/city/[city]/hotels/index"
+          options={{
+            title: 'Hotels',
             headerShadowVisible: true,
           }}
         />
