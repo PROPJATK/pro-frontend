@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { router, usePathname } from 'expo-router'
 import { work_ip } from '../../../../../_layout'
+import Card from "../../../../../../components/Card"
 
 type RestaurantData = {
   id: string
@@ -42,16 +43,8 @@ const RestaurantsPage = () => {
   return (
     <View style={styles.container}>
       {restaurantsData.map((restaurant: RestaurantData) => (
-        <View key={restaurant._id} style={styles.card}>
-          <Text style={styles.title}>
-            {restaurant.name}
-          </Text>
-          <Text style={styles.address}>
-            {restaurant.address}
-          </Text>
-          <Text style={styles.address}>
-            {restaurant.cuisine}
-          </Text>
+        <View key={restaurant.name}>
+          <Card name={restaurant.name} location={restaurant.address} cuisine={restaurant.cuisine}/>
         </View>
       ))}
     </View>
@@ -65,20 +58,11 @@ const styles = StyleSheet.create({
     gap: 10,
     alignItems: 'center',
   },
-  card: {
-    backgroundColor: '#363636',
-    padding: 8,
-    margin: 8,
-    borderRadius: 4,
-  },
   title: {
     color: '#fff',
     fontSize: 16,
   },
-  address: {
-    color: '#fff',
-    fontSize: 14,
-  },
+
 })
 
 export default RestaurantsPage

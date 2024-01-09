@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react'
+
+import Card from "../../../../../../components/Card"
+
 import {
   View,
   Text,
@@ -50,21 +53,15 @@ const AttractionsPage = () => {
       </View>
     )
   }
-
+ 
   return (
     <View style={styles.container}>
       {attractionsData.map((attraction: AttractionData) => (
-        <View key={attraction._id} style={styles.card}>
-          <Text style={styles.title}>
-            {attraction.name}
-          </Text>
-          <Text style={styles.address}>
-            {attraction.address}
-          </Text>
-        </View>
+        <Card key={attraction.name} name={attraction.name} location={attraction.address}></Card>
       ))}
     </View>
   )
+
 }
 
 const styles = StyleSheet.create({
@@ -74,20 +71,11 @@ const styles = StyleSheet.create({
     gap: 10,
     alignItems: 'center',
   },
-  card: {
-    backgroundColor: '#363636',
-    padding: 8,
-    margin: 8,
-    borderRadius: 4,
-  },
   title: {
     color: '#fff',
     fontSize: 16,
   },
-  address: {
-    color: '#fff',
-    fontSize: 14,
-  },
+
 })
 
 export default AttractionsPage
