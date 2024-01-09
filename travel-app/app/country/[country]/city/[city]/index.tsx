@@ -98,14 +98,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    gap: 10,
+    gap: 30,
     alignItems: 'center',
   },
   button: {
     backgroundColor: '#363636',
-    padding: 8,
-    margin: 8,
+    padding: 10,
     borderRadius: 4,
+    maxHeight: 70,
+    flex: 1,
+    width: '90%',
+    gap: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,
