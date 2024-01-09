@@ -3,6 +3,7 @@ import { View, Text } from './../components/Themed'
 import { StyleSheet } from 'react-native'
 import axios from 'axios'
 import CountryCard from './../components/CountryCard'
+import { work_ip } from './_layout'
 
 type Country = {
   name: string
@@ -14,7 +15,7 @@ const Index = () => {
 
   useEffect(() => {
     axios
-      .get('http://192.168.1.14:3000/api/countries')
+      .get(`http://${work_ip}:3000/api/countries`)
       .then((response) => {
         setCountries(response.data)
       })

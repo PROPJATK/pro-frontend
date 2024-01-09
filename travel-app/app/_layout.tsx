@@ -14,6 +14,9 @@ export {
   ErrorBoundary,
 } from 'expo-router'
 
+// Ze względu na CORS, aplikacja musi być uruchomiona na tym samym adresie IP co serwer metro.
+export const work_ip = `172.19.240.36`
+
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: 'index',
@@ -56,10 +59,6 @@ function RootLayoutNav() {
       }
     >
       <Stack>
-        {/* <Stack.Screen
-          name="(tabs)"
-          options={{ headerShown: false }}
-        /> */}
         <Stack.Screen
           name="index"
           options={{
