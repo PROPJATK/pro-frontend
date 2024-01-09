@@ -12,6 +12,7 @@ import {
   usePathname,
 } from 'expo-router'
 import CountryInfo from '../../../components/CountryInfo'
+import { work_ip } from '../../_layout'
 
 type CountryData = {
   name: string
@@ -36,7 +37,7 @@ const CountryPage = () => {
     navigation.setOptions({ title: countryName })
     const fetchCountryData = async () => {
       const response = await fetch(
-        `http://192.168.1.14:3000/api/countries/${countryName}`
+        `http://${work_ip}:3000/api/countries/${countryName}`
       )
       const data = await response.json()
       setCountryData(data)

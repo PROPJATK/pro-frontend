@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { router, usePathname } from 'expo-router'
+import { work_ip } from '../../../../../_layout'
 
 type HotelData = {
   id: string
@@ -22,7 +23,7 @@ const HotelsPage = () => {
   useEffect(() => {
     const fetchHotelsData = async () => {
       const response = await fetch(
-        `http://192.168.1.14:3000/api/countries/${countryName}/cities/${cityName}/hotels`
+        `http://${work_ip}:3000/api/countries/${countryName}/cities/${cityName}/hotels`
       )
       const data = await response.json()
       setHotelsData(data)
