@@ -13,6 +13,7 @@ import {
 } from 'expo-router'
 import { work_ip } from '../../../../_layout'
 
+
 type CityData = {
   name: string
   image: string

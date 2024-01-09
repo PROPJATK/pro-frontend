@@ -10,7 +10,9 @@ import {
   useNavigation,
   usePathname,
 } from 'expo-router'
+
 import { work_ip } from '../../../../../_layout'
+
 
 type AttractionData = {
   id: string
@@ -31,7 +33,9 @@ const AttractionsPage = () => {
   useEffect(() => {
     const fetchAttractionsData = async () => {
       const response = await fetch(
+
         `http://${work_ip}:3000/api/countries/${countryName}/cities/${cityName}/attractions`
+
       )
       const data = await response.json()
       setAttractionsData(data)

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { router, usePathname } from 'expo-router'
+
 import { work_ip } from '../../../../../_layout'
+
 
 type HotelData = {
   id: string

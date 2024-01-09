@@ -14,6 +14,7 @@ import {
 import CountryInfo from '../../../components/CountryInfo'
 import { work_ip } from '../../_layout'
 
+
 type CountryData = {
   name: string
   image: string
