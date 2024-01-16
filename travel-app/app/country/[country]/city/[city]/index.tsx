@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  useColorScheme,
 } from 'react-native'
 import { Image } from 'react-native'
 import {
@@ -12,7 +13,6 @@ import {
   usePathname,
 } from 'expo-router'
 import { work_ip } from '../../../../_layout'
-
 
 type CityData = {
   name: string
@@ -26,6 +26,9 @@ const CityPage = () => {
   )
   const navigation = useNavigation()
   const pathname = usePathname()
+  const colorScheme = useColorScheme()
+  const textColor =
+    colorScheme === 'light' ? 'black' : 'white'
   const countryName = pathname.split('/')[2]
   const cityName = pathname.split('/').pop()
 
@@ -44,7 +47,9 @@ const CityPage = () => {
   if (!cityData) {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Loading...</Text>
+        <Text style={[styles.title, { color: textColor }]}>
+          Loading...
+        </Text>
       </View>
     )
   }
@@ -57,7 +62,7 @@ const CityPage = () => {
           style={styles.image}
         />
       </View>
-      <Text style={styles.title}>
+      <Text style={[styles.title, { color: textColor }]}>
         {cityData.description}
       </Text>
       <TouchableOpacity
@@ -115,7 +120,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: 'white',
+    paddingHorizontal: 15,
   },
   image: {
     width: '100%',

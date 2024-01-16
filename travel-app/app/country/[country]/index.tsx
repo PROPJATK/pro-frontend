@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  useColorScheme,
 } from 'react-native'
 import { Image } from 'react-native'
 import {
@@ -13,7 +14,6 @@ import {
 } from 'expo-router'
 import CountryInfo from '../../../components/CountryInfo'
 import { work_ip } from '../../_layout'
-
 
 type CountryData = {
   name: string
@@ -30,6 +30,9 @@ type CountryData = {
 const CountryPage = () => {
   const navigation = useNavigation()
   const pathname = usePathname()
+  const colorScheme = useColorScheme()
+  const textColor =
+    colorScheme === 'light' ? 'black' : 'white'
   const countryName = pathname.split('/').pop()
   const [countryData, setCountryData] =
     useState<CountryData | null>(null)
@@ -49,7 +52,9 @@ const CountryPage = () => {
   if (!countryData) {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Loading...</Text>
+        <Text style={[styles.title, { color: textColor }]}>
+          Loading...
+        </Text>
       </View>
     )
   }

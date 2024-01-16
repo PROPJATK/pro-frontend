@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  useColorScheme,
+} from 'react-native'
 import { router, usePathname } from 'expo-router'
 
 import { work_ip } from '../../../../../_layout'
 
-import Card from "../../../../../../components/Card"
-
-
+import Card from '../../../../../../components/Card'
 
 type HotelData = {
   id: string
@@ -22,6 +25,9 @@ const HotelsPage = () => {
     HotelData[] | null
   >(null)
   const pathname = usePathname()
+  const colorScheme = useColorScheme()
+  const textColor =
+    colorScheme === 'light' ? 'black' : 'white'
   const countryName = pathname.split('/')[2]
   const cityName = pathname.split('/')[4]
 
@@ -39,19 +45,25 @@ const HotelsPage = () => {
   if (!hotelsData) {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Loading...</Text>
+        <Text style={[styles.title, { color: textColor }]}>
+          Loading...
+        </Text>
       </View>
     )
   }
 
   return (
-  <View style={styles.container}>
-    {hotelsData.map((hotel: HotelData) => (
-      <View key={hotel.name}>
-        <Card name={hotel.name} location={hotel.address} rating={hotel.stars} />
-      </View>
-    ))}
-  </View>
+    <View style={styles.container}>
+      {hotelsData.map((hotel: HotelData) => (
+        <View key={hotel.name}>
+          <Card
+            name={hotel.name}
+            location={hotel.address}
+            rating={hotel.stars}
+          />
+        </View>
+      ))}
+    </View>
   )
 }
 
@@ -65,7 +77,7 @@ const styles = StyleSheet.create({
   title: {
     color: '#fff',
     fontSize: 16,
-  }
+  },
 })
 
 export default HotelsPage

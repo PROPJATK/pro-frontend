@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native'
 import axios from 'axios'
 import CountryCard from './../components/CountryCard'
 import { work_ip } from './_layout'
+import { ScrollView } from 'react-native-gesture-handler'
 
 type Country = {
   name: string
@@ -25,16 +26,18 @@ const Index = () => {
   }, [])
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Countries</Text>
-      {countries.map((country) => (
-        <CountryCard
-          key={country.name}
-          countryName={country.name}
-          imageUrl={country.image}
-        />
-      ))}
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Countries</Text>
+        {countries.map((country) => (
+          <CountryCard
+            key={country.name}
+            countryName={country.name}
+            imageUrl={country.image}
+          />
+        ))}
+      </View>
+    </ScrollView>
   )
 }
 

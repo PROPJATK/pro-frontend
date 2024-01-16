@@ -15,7 +15,7 @@ export {
 } from 'expo-router'
 
 // Ze względu na CORS, aplikacja musi być uruchomiona na tym samym adresie IP co serwer metro.
-export const work_ip = `192.168.8.105`
+export const work_ip = `172.19.240.37`
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
